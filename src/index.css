@@ -1,4 +1,4 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -7,31 +7,62 @@
   font-style: normal;
 }
 
-#root{
+#root {
   width: 100vw;
   height: 100vh;
   background-color: #e4e4e4;
 }
 
-.app{
+.app {
   background-color: #fff;
   height: 100%;
   width: 70%;
   max-width: 460px;
-  margin:  0 auto;
+  margin: 0 auto;
   padding: 1.5em;
 }
 
-.card{
+.card {
   background-color: #e4e4e4;
   border-radius: 10px;
-  padding: 1em;
+  padding: 1.5em;
 }
 
-.add{
+.add {
   margin-bottom: 1.5em;
+  display: flex;
+  justify-content: stretch;
+  gap: 0.3em;
 }
 
-.list{
-  
+.add input{
+  flex-grow: 1;
 }
+
+.add button, .item button {
+  padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5em;
+  border-bottom: 1px solid #fff;
+}
+
+.item p:first-of-type{
+  font-weight: 700;
+}
+
+.item p:nth-of-type(2){
+  font-weight: 300;
+  color:#838383;
+}
+
