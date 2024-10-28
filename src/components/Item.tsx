@@ -1,5 +1,6 @@
 import React from "react";
 import Todo from "../models/todoModel";
+import moment from "moment";
 
 interface Props {
   todo: Todo;
@@ -16,6 +17,10 @@ export default function Item({ todo, setTodos }: Props) {
     })
   };
 
+  const handleDelete = () => {
+    setTodos(todos =>  todos.filter(currTodo => currTodo.id !== todo.id))
+  };
+
   return (
     <div className="item">
       <input
@@ -23,9 +28,9 @@ export default function Item({ todo, setTodos }: Props) {
         checked={todo.completed}
         onChange={e=>handleCompletedChage(e.target.checked)}
       />
-      <p>{todo.title}</p>
-      <p>{todo.created_at.toLocaleString()}</p>
-      <button>Delete</button>
+      <p style={{textDecoration: todo.completed? "line-through":"none"}}>{todo.title}</p>
+      <p>{moment(todo.created_at).fromNow()}</p>
+      <button onClick={handleDelete}>Delete</button>
     </div>
   );
 }
